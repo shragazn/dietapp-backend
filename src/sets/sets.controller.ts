@@ -1,15 +1,7 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
-} from '@nestjs/common';
-import { SetsService } from './sets.service';
+import { Body, Controller, Delete, Param, Patch, Post } from '@nestjs/common';
 import { CreateSetDto } from './dto/create-set.dto';
 import { UpdateSetDto } from './dto/update-set.dto';
+import { SetsService } from './sets.service';
 
 @Controller('user/:userId/workouts/:workoutId/exercises/:exerciseId/set')
 export class SetsController {
@@ -18,11 +10,6 @@ export class SetsController {
   @Post()
   create(@Body() createSetDto: CreateSetDto) {
     return this.setService.create(createSetDto);
-  }
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.setService.findOne(id);
   }
 
   @Patch(':id')

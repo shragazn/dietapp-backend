@@ -6,12 +6,13 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { ExercisesService } from './exercises.service';
 import { CreateExerciseDto } from './dto/create-exercise.dto';
 import { UpdateExerciseDto } from './dto/update-exercise.dto';
 
-@Controller('users/:userId/workouts/:workoutId/exercises')
+@Controller('exercises')
 export class ExercisesController {
   constructor(private readonly exerciseService: ExercisesService) {}
 
@@ -21,7 +22,7 @@ export class ExercisesController {
   }
 
   @Get()
-  findAll(@Param('workoutId') workoutId: string) {
+  findAll(@Query('workoutId') workoutId: string) {
     return this.exerciseService.findAll(workoutId);
   }
 

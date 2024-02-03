@@ -10,10 +10,6 @@ export class SetsService {
     return this.prisma.set.create({ data: createSetDto });
   }
 
-  findOne(id: string) {
-    return this.prisma.set.findUnique({ where: { id } });
-  }
-
   update(id: string, updateSetDto: UpdateSetDto) {
     return this.prisma.set.update({ where: { id }, data: updateSetDto });
   }

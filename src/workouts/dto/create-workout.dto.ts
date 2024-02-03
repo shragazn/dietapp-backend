@@ -9,4 +9,8 @@ export class CreateWorkoutDto implements Partial<Workout> {
   @IsString()
   @IsNotEmpty()
   userId: string;
+
+  @IsString()
+  @IsNotEmpty()
+  planId: string;
 }

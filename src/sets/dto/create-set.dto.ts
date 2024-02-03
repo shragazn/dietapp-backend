@@ -1,16 +1,14 @@
 import { Set } from '@prisma/client';
-import { IsNotEmpty, IsNumber, IsString, Min } from 'class-validator';
+import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
 export class CreateSetDto implements Partial<Set> {
   @IsString()
   @IsNotEmpty()
-  exerciseId: string;
+  workoutExerciseId: string;
 
   @IsNumber()
-  @Min(1)
   reps: number;
 
   @IsNumber()
-  @Min(1)
   weight: number;
 }
